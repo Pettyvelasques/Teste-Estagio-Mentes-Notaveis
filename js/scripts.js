@@ -8,11 +8,18 @@ class Calculator {
         this.currentOperationText = currentOperationText;
         this.currentOperation = "";
         this.clearScreen = true;
+        this.resultScreen = false
     }
 
 
     addDigit(digit) {
         if (digit === "." && this.currentOperationText.innerText.includes(".")) {
+            return;
+        }
+        if (digit >= 0 && this.resultScreen === true) {
+            this.currentOperationText.innerText = "";
+            this.currentOperationText.innerText = digit;
+            this.resultScreen === false;
             return;
         }
 
@@ -22,8 +29,21 @@ class Calculator {
 
     processOperation(operation) {
         let hideOperation = ""
+        let verifyOperation = (this.previousOperationText.innerText.split(" ")[1]);
+        let fixOperation = operation;
 
-        if (this.clearScreen === true && operation !== "C/AC" && operation !== "ON" && operation !== "=") {
+        if (this.currentOperationText.innerText === "0") {
+            return;
+        }
+        else if (this.previousOperationText.innerText !== "0" && operation !== "=" && operation !== "C/AC" && operation !== "ON" && verifyOperation !== operation) {
+            console.log(operation)
+            console.log(fixOperation)
+            console.log(verifyOperation)
+            operation = verifyOperation;
+            console.log("consertou")
+            console.log(operation)
+        }
+        else if (this.clearScreen === true && operation !== "C/AC" && operation !== "ON" && operation !== "=") {
             if (this.previousOperationText.innerText !== "" && this.clearScreen === true) {
                 this.changeOperation(operation);
 
@@ -46,23 +66,32 @@ class Calculator {
         switch (operation) {
             case "+":
                 operationValue = previous + current;
+                operation = fixOperation;
                 this.updateScreen(operationValue, operation, current, previous);
+                this.resultScreen === false
                 break;
             case "-":
                 operationValue = previous - current;
+                operation = fixOperation;
                 this.updateScreen(operationValue, operation, current, previous);
+                this.resultScreen === false
                 break;
             case "*":
                 operationValue = previous * current;
+                operation = fixOperation;
                 this.updateScreen(operationValue, operation, current, previous);
+                this.resultScreen === false
                 break;
             case "/":
                 operationValue = previous / current;
+                operation = fixOperation;
                 this.updateScreen(operationValue, operation, current, previous);
+                this.resultScreen === false
                 break;
             case "C/AC":
             case "ON":
                 this.clearOperator();
+                this.resultScreen === false
                 break;
             case "=":
                 this.equalOperator();
@@ -92,6 +121,7 @@ class Calculator {
             this.previousOperationText.innerText = `${operationValue} ${operation}`;
             this.currentOperationText.innerText = operationValue;
             this.clearScreen = true;
+            this.resultScreen = false;
             console.log(previousOperationText.innerText)
         }
     }
@@ -114,20 +144,26 @@ class Calculator {
             this.currentOperationText.innerText = "0";
             this.previousOperationText.innerText = "0";
             this.clearScreen = true
+            this.resultScreen = false;
+            console.log("apaga 1")
             return
         }
         else {
-            this.currentOperationText.innerText = this.previousOperationText.innerText.split(" ")[0];
+            this.currentOperationText.innerText = "0";
+            this.previousOperationText.innerText = "0";
             this.clearScreen = true
+            this.resultScreen = false;
+            console.log("apaga 3")
             return
         }
     }
 
     equalOperator() {
-        let operation = this.previousOperationText.innerText.split(" ")[1];
+        const operation = this.previousOperationText.innerText.split(" ")[1];
         this.processOperation(operation);
-        this.previousOperationText.innerText = "";
+        this.previousOperationText.innerText = "0";
         this.clearScreen = false;
+        this.resultScreen = true;
     }
 }
 
