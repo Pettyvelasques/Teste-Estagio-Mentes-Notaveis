@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -98,7 +97,7 @@ body {
 
 #previous-operation {
     display: none;
-/*     width: 95%;
+    /*     width: 95%;
     height: 20%;
     background-color: rgb(204, 85, 0) */
 }
