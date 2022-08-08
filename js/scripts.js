@@ -127,7 +127,7 @@ class Calculator {
         let operation = this.previousOperationText.innerText.split(" ")[1];
         this.processOperation(operation);
         this.previousOperationText.innerText = "";
-        this.clearScreen = false;
+        this.clearScreen = true;
     }
 }
 
