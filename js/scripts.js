@@ -61,8 +61,6 @@ class Calculator {
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
             case "C/AC":
-                this.clearOperator();
-                break;
             case "ON":
                 this.clearOperator();
                 break;
@@ -111,10 +109,10 @@ class Calculator {
     }
 
     clearOperator() {
-        if (this.currentOperationText.innerText === "") {
+        if (this.currentOperationText.innerText = this.previousOperationText.innerText && this.clearScreen === true) {
 
-            this.currentOperationText.innerText = "";
-            this.previousOperationText.innerText = "";
+            this.currentOperationText.innerText = "0";
+            this.previousOperationText.innerText = "0";
             this.clearScreen = true
             return
         }
@@ -128,6 +126,8 @@ class Calculator {
     equalOperator() {
         let operation = this.previousOperationText.innerText.split(" ")[1];
         this.processOperation(operation);
+        this.previousOperationText.innerText = "";
+        this.clearScreen = false;
     }
 }
 
