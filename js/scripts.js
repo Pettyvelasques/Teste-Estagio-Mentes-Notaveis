@@ -91,7 +91,7 @@ class Calculator {
             }
             this.previousOperationText.innerText = `${operationValue} ${operation}`;
             this.currentOperationText.innerText = operationValue;
-            this.clearScreen = true
+            this.clearScreen = true;
             console.log(previousOperationText.innerText)
         }
     }
@@ -127,7 +127,7 @@ class Calculator {
         let operation = this.previousOperationText.innerText.split(" ")[1];
         this.processOperation(operation);
         this.previousOperationText.innerText = "";
-        this.clearScreen = true;
+        this.clearScreen = false;
     }
 }
 
