@@ -13,6 +13,18 @@ body {
     padding: 3em;
 }
 
+button {
+    width: 2.8em;
+    height: 2em;
+    border-radius: 5px;
+    border-color: rgb(182, 182, 182);
+    background-color: rgb(17, 17, 17);
+    color: rgb(182, 182, 182);
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .calc {
     width: 320px;
     height: 440px;
@@ -80,6 +92,24 @@ body {
     font-size: .2em;
 }
 
+.blank-space {
+    grid-column: span 3;
+}
+
+.number {
+    background-color: rgb(114, 114, 114);
+}
+
+.function-clear {
+    font-size: 0.8em;
+    text-decoration: underline;
+}
+
+.function-on {
+    font-size: 0.5em;
+    font-weight: 500;
+}
+
 #current-operation {
     display: flex;
     justify-content: flex-end;
@@ -111,40 +141,8 @@ body {
     border-top: .5px solid rgb(39, 39, 39);
 }
 
-button {
-    width: 2.8em;
-    height: 2em;
-    border-radius: 5px;
-    border-color: rgb(182, 182, 182);
-    background-color: rgb(17, 17, 17);
-    color: rgb(182, 182, 182);
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-
-.blank-space {
-    grid-column: span 3;
-}
-
-.number {
-    background-color: rgb(114, 114, 114);
-}
-
 #c-on {
     background-color: rgb(204, 85, 0);
-}
-
-.function-clear {
-    font-size: 0.8em;
-    text-decoration: underline;
-}
-
-.function-on {
-    font-size: 0.5em;
-    font-weight: 500;
 }
 
 #addition {

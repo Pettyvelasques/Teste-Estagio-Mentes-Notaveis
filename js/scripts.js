@@ -119,7 +119,7 @@ class Calculator {
             return
         }
         else {
-            this.currentOperationText.innerText = "";
+            this.currentOperationText.innerText = this.previousOperationText.innerText.split(" ")[0];
             this.clearScreen = true
             return
         }
