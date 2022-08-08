@@ -36,19 +36,13 @@ class Calculator {
             return;
         }
         else if (this.previousOperationText.innerText !== "0" && operation !== "=" && operation !== "C/AC" && operation !== "ON" && verifyOperation !== operation) {
-            console.log(operation)
-            console.log(fixOperation)
-            console.log(verifyOperation)
             operation = verifyOperation;
-            console.log("consertou")
-            console.log(operation)
         }
         else if (this.clearScreen === true && operation !== "C/AC" && operation !== "ON" && operation !== "=") {
             if (this.previousOperationText.innerText !== "" && this.clearScreen === true) {
                 this.changeOperation(operation);
 
                 hideOperation = this.currentOperationText.innerText;
-                console.log(hideOperation);
                 this.currentOperationText.innerText = ""
                 setTimeout(() => {
                     this.currentOperationText.innerText = hideOperation;
@@ -122,7 +116,6 @@ class Calculator {
             this.currentOperationText.innerText = operationValue;
             this.clearScreen = true;
             this.resultScreen = false;
-            console.log(previousOperationText.innerText)
         }
     }
 
@@ -145,7 +138,6 @@ class Calculator {
             this.previousOperationText.innerText = "0";
             this.clearScreen = true
             this.resultScreen = false;
-            console.log("apaga 1")
             return
         }
         else {
@@ -153,7 +145,6 @@ class Calculator {
             this.previousOperationText.innerText = "0";
             this.clearScreen = true
             this.resultScreen = false;
-            console.log("apaga 3")
             return
         }
     }

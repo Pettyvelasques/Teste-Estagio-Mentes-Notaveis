@@ -126,10 +126,10 @@ button {
 }
 
 #previous-operation {
-    display: flex;
-    width: 95%;
+    display: none;
+    /* width: 95%;
     height: 20%;
-    background-color: rgb(204, 85, 0)
+    background-color: rgb(204, 85, 0) */
 }
 
 #buttons-container {
