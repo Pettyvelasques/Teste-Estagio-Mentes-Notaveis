@@ -39,7 +39,7 @@ class Calculator {
             operation = verifyOperation;
         }
         else if (this.clearScreen === true && operation !== "C/AC" && operation !== "ON" && operation !== "=") {
-            if (this.previousOperationText.innerText !== "" && this.clearScreen === true) {
+            if (this.previousOperationText.innerText !== "") {
                 this.changeOperation(operation);
 
                 hideOperation = this.currentOperationText.innerText;
